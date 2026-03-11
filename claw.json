@@ -1,0 +1,132 @@
+{
+  "meta": {
+    "lastTouchedVersion": "2026.3.8",
+    "lastTouchedAt": "2026-03-10T18:42:46.301Z"
+  },
+  "wizard": {
+    "lastRunAt": "2026-03-10T18:40:36.872Z",
+    "lastRunVersion": "2026.3.8",
+    "lastRunCommand": "onboard",
+    "lastRunMode": "local"
+  },
+  "auth": {
+    "profiles": {
+      "google:default": {
+        "provider": "google",
+        "mode": "api_key"
+      }
+    }
+  },
+  "agents": {
+    "defaults": {
+      "model": {
+        "primary": "google/gemini-2.5-flash"
+      },
+      "models": {
+        "google/gemini-2.5-flash": {}
+      },
+      "workspace": "C:\\Users\\abhis\\.openclaw\\workspace",
+      "compaction": {
+        "mode": "safeguard"
+      },
+      "maxConcurrent": 3,
+      "subagents": {
+        "maxConcurrent": 6
+      }
+    },
+    "list": [
+      {
+        "id": "main",
+        "groupChat": {
+          "mentionPatterns": [
+            "@?vector ji"
+          ],
+          "historyLimit": 40
+        }
+      }
+    ]
+  },
+  "tools": {
+    "profile": "coding",
+    "web": {
+      "search": {
+        "enabled": true,
+        "provider": "gemini",
+        "gemini": {
+          "apiKey": "AIzaSyAzPF5ZXGAOarffojR1PXKXZ9TrKdiqvHM"
+        }
+      }
+    }
+  },
+  "commands": {
+    "native": "auto",
+    "nativeSkills": "auto",
+    "restart": true,
+    "ownerDisplay": "raw"
+  },
+  "session": {
+    "dmScope": "per-channel-peer"
+  },
+  "hooks": {
+    "internal": {
+      "enabled": true,
+      "entries": {
+        "session-memory": {
+          "enabled": true
+        },
+        "bootstrap-extra-files": {
+          "enabled": true
+        },
+        "boot-md": {
+          "enabled": true
+        },
+        "command-logger": {
+          "enabled": true
+        }
+      }
+    }
+  },
+  "channels": {
+    "whatsapp": {
+      "enabled": true,
+      "dmPolicy": "allowlist",
+      "selfChatMode": true,
+      "allowFrom": [
+        "+919324233914",
+        "+918007722620"
+      ],
+      "groupPolicy": "allowlist",
+      "groups": {
+        "*": {
+          "requireMention": true
+        }
+      },
+      "debounceMs": 1000,
+      "mediaMaxMb": 50
+    }
+  },
+  "gateway": {
+    "port": 18789,
+    "mode": "local",
+    "bind": "loopback",
+    "auth": {
+      "mode": "token",
+      "token": "2e143c32c441e237ef869839b8a8b62bc5706f0a522bc787"
+    },
+    "tailscale": {
+      "mode": "off",
+      "resetOnExit": false
+    },
+    "nodes": {
+      "denyCommands": [
+        "camera.snap",
+        "camera.clip",
+        "screen.record",
+        "contacts.add",
+        "calendar.add",
+        "reminders.add",
+        "sms.send"
+      ]
+    }
+  }
+}
